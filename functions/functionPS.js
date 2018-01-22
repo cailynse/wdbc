@@ -5,12 +5,18 @@ function isEven(num) {
     return false;
 }
 
-function factorial(num) {
+//more efficient
+//function isEven(num){
+//  return num % 2 === 0;
+//}
 
+
+function factorial(num) {
     var product = 1;
 
     for (var i = num; i > 0; i--) {
         product = product * i;
+        //more efficient product *= i;
     }
     return product;
 }
