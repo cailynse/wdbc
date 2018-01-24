@@ -30,3 +30,16 @@ function movieReport(arr) {
         }
     }
 }
+
+//or
+movieDB.forEach(function (movie) {
+    var result = "You have ";
+    if (movie.hasWatched) {
+        result += "watched ";
+    } else {
+        result += "not watched ";
+    }
+    result += "\"" + movie.title + "\" - ";
+    result += movie.rating;
+    console.log(result);
+})
