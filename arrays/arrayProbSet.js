@@ -11,6 +11,9 @@ function printReverse(arr) {
     });
 }
 
+//or I could have used a for loop
+// for (var i = arr.length - 1; i >= 0; i--)
+//      console.log(arr[i]);
 
 function isUniform(arr) {
     //check that all items are the same
@@ -35,6 +38,14 @@ function sumArray(arr) {
     }
     return sum;
 }
+
+//I could have done a forEach
+//var total = 0;
+//arr.forEach(function(element){
+//  total += element;
+//});
+//return total;
+//
 
 
 function max(arr) {
