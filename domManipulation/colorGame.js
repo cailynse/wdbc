@@ -5,6 +5,52 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
+var numSquares = 6;
+
+easyBtn.addEventListener("click", function () {
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    numSquares = 3;
+
+    //generate new set of colors
+    colors = generateRandomColors(numSquares);
+    //pick new color
+    pickedColor = pickColor();
+    //change text to display color
+    colorDisplay.textContent = pickedColor;
+    //display new colors
+    for (var i = 0; i < squares.length; i++) {
+        if (colors[i]) {
+            squares[i].style.backgroundColor = colors[i];
+        } else {
+            squares[i].style.display = "none";
+        }
+    }
+    h1.style.backgroundColor = "#232323"
+    resetButton.textContent = "New Colors";
+});
+
+hardBtn.addEventListener("click", function () {
+    hardBtn.classList.add("selected");
+    easyBtn.classList.remove("selected");
+    numSquares = 6;
+
+    //generate new set of colors
+    colors = generateRandomColors(numSquares);
+    //pick new color
+    pickedColor = pickColor();
+    //change text to display color
+    colorDisplay.textContent = pickedColor;
+    //display new colors
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block";
+    }
+    h1.style.backgroundColor = "#232323"
+    resetButton.textContent = "New Colors";
+});
 
 function generateRandomColors(num) {
     //make an array
@@ -42,7 +88,7 @@ function changeColors(color) {
 
 resetButton.addEventListener("click", function () {
     //generate new set of colors
-    colors = generateRandomColors(6);
+    colors = generateRandomColors(numSquares);
     //pick new color
     pickedColor = pickColor();
     //change text to display color
