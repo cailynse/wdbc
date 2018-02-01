@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script type="text/javascript" src="paper-full.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="circles.css">
+
+<script type="text/paperscript" canvas="myCanvas">
+
+
+project.currentStyle = {
+	fillColor: 'green'
+};
+
+
+var ballPositions = [];
+var spot = [];
+
+for (var h = 50; h < 2000; h+= 50){
+	for (var j = 10; j < 2000; j += 50){
+		spot.push(j);
+		spot.push(h);
+		ballPositions.push(spot);
+		spot = [];
+
+	}
+}
+
+
+
+console.log(ballPositions);
+
+var circlePaths = [];
+var radius = 50;
+for (var i = 0, l = ballPositions.length; i < l; i++) {
+	var circlePath = new Path.Circle({
+		center: ballPositions[i],
+		radius: 10
+	});
+	circlePaths.push(circlePath);
+}
+
+console.log(circlePaths);
+
+</script>
+
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>
